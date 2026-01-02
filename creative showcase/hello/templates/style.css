@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    background: #0f172a;
+    color: white;
+    font-family: Arial;
+}
+
+
+/* Navbar */
+
+nav {
+    background: #020617;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1f2937;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+
+/* Page container */
+
+.container {
+    padding: 30px;
+}
+
+
+/* Masonry Gallery */
+
+.gallery {
+    column-count: 4;
+    column-gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    break-inside: avoid;
+}
+
+@media(max-width:900px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media(max-width:500px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
+
+/* Box design */
+
+.box {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #020617;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 7px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Upload box */
+
+.upload-box {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #020617;
+    border-radius: 10px;
+}
