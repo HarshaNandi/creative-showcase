@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Memories</title>
+
+<style>
+
+/* ================= GLOBAL THEME ================= */
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top,#020617,#020617,#0f172a);
+  color:white;
+}
+
+/* ================= NAVBAR ================= */
+nav{
+  background:#020617;
+  padding:16px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #1f2937;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+nav h2{
+  margin:0;
+  color:#38bdf8;
+  letter-spacing:1px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  padding:8px 14px;
+  border-radius:8px;
+  font-size:14px;
+}
+
+nav a:hover{
+  background:#1f2937;
+  color:#38bdf8;
+}
+
+/* ================= PAGE CONTAINER ================= */
+.container{
+  padding:40px 60px;
+}
+
+/* ================= GALLERY (MASONRY) ================= */
+.gallery{
+  column-count:4;
+  column-gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  margin-bottom:15px;
+  border-radius:14px;
+  break-inside:avoid;
+  transition:transform .3s, box-shadow .3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.02);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+@media(max-width:1000px){
+  .gallery{column-count:2;}
+}
+@media(max-width:600px){
+  .gallery{column-count:1;}
+}
+
+/* ================= AUTH BOX ================= */
+.box{
+  max-width:420px;
+  margin:60px auto;
+  background:#020617;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+.box h2{
+  color:#38bdf8;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+  background:#020617;
+  color:white;
+  border:1px solid #1f2937;
+}
+
+/* ================= BUTTONS ================= */
+button{
+  padding:12px 26px;
+  background:#2563eb;
+  border:none;
+  color:white;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+/* ================= UPLOAD SECTION ================= */
+.upload-box{
+  max-width:480px;
+  margin:30px auto;
+  padding:30px;
+  background:linear-gradient(135deg,#020617,#0b1220);
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,.45);
+}
+
+.upload-box h3{
+  text-align:center;
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+.upload-box form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.upload-box input[type="file"]{
+  background:#020617;
+  color:#cbd5f5;
+  padding:12px;
+  border-radius:12px;
+  border:2px dashed #334155;
+  cursor:pointer;
+}
+
+.upload-box input[type="file"]::file-selector-button{
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  margin-right:10px;
+  cursor:pointer;
+}
+
+.upload-box input[type="file"]::file-selector-button:hover{
+  background:#1d4ed8;
+}
+
+.upload-btn{
+  align-self:center;
+  padding:12px 36px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:black;
+  font-weight:bold;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.upload-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(34,197,94,.45);
+}
+
+/* ================= CALENDAR ================= */
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.calendar div{
+  padding:14px;
+  border-radius:14px;
+  background:#1f2937;
+  text-align:center;
+  font-weight:bold;
+}
+
+.calendar .active{
+  background:#22c55e;
+  color:black;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:80px;
+  background:#020617;
+  padding:25px;
+  text-align:center;
+  color:#9ca3af;
+  border-top:1px solid #1f2937;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+  <h2>Digital Memories</h2>
+
+  <div>
+    {% if user.is_authenticated %}
+      <a href="/dashboard/">Dashboard</a>
+      <a href="/logout/">Logout</a>
+    {% else %}
+      <a href="/login/">Login</a>
+      <a href="/signup/">Signup</a>
+    {% endif %}
+  </div>
+</nav>
+
+<!-- ================= PAGE CONTENT ================= -->
+{% block content %}
+{% endblock %}
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  Built with ❤️ for artists • Digital Memories
+</footer>
+
+</body>
+</html>

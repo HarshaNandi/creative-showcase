@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<div style="
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  padding:90px 60px;
+  align-items:center;
+  background:radial-gradient(circle at top left,#1e3a8a,#020617);
+">
+
+  <!-- LEFT CONTENT -->
+  <div>
+    <h1 id="welcomeText" style="
+      font-size:48px;
+      line-height:1.2;
+      color:#38bdf8;
+      text-shadow:0 0 18px rgba(56,189,248,.7);
+    ">
+    </h1>
+
+    <p style="
+      margin-top:20px;
+      font-size:19px;
+      color:#cbd5f5;
+      max-width:520px;
+      line-height:1.6;
+    ">
+      A digital sanctuary where artists preserve memories, build habits,
+      and showcase creativity to the world.
+    </p>
+
+    <div style="margin-top:35px;">
+      {% if not user.is_authenticated %}
+        <a href="/signup/" style="
+          background:#2563eb;
+          padding:15px 32px;
+          border-radius:12px;
+          color:white;
+          text-decoration:none;
+          font-size:16px;
+          margin-right:12px;
+        ">Start Creating</a>
+
+        <a href="/login/" style="
+          border:1px solid #38bdf8;
+          padding:15px 32px;
+          border-radius:12px;
+          color:#38bdf8;
+          text-decoration:none;
+          font-size:16px;
+        ">Login</a>
+      {% else %}
+        <a href="/dashboard/" style="
+          background:#22c55e;
+          padding:15px 32px;
+          border-radius:12px;
+          color:black;
+          text-decoration:none;
+          font-size:16px;
+        ">Go to Dashboard</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- RIGHT VISUAL BLOCK -->
+  <div style="
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    border-radius:20px;
+    padding:30px;
+    color:black;
+  ">
+    <h3>🔥 Build Daily Creative Streaks</h3>
+    <p style="font-size:15px;">
+      Upload daily. Track progress. Stay consistent.
+    </p>
+
+    <div style="
+      margin-top:20px;
+      background:white;
+      padding:15px;
+      border-radius:15px;
+      font-size:14px;
+    ">
+      ✔ Upload artwork<br>
+      ✔ Calendar tracking<br>
+      ✔ Public gallery<br>
+      ✔ Motivation streaks
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= STATS STRIP ================= -->
+<div style="
+  display:flex;
+  justify-content:space-around;
+  padding:40px 20px;
+  background:#020617;
+  border-top:1px solid #1f2937;
+  border-bottom:1px solid #1f2937;
+">
+
+  <div>
+    <h2 style="color:#38bdf8;">🎨</h2>
+    <p>Artists</p>
+  </div>
+  <div>
+    <h2 style="color:#38bdf8;">📸</h2>
+    <p>Memories Shared</p>
+  </div>
+  <div>
+    <h2 style="color:#38bdf8;">🔥</h2>
+    <p>Daily Streaks</p>
+  </div>
+  <div>
+    <h2 style="color:#38bdf8;">🌍</h2>
+    <p>Public Profiles</p>
+  </div>
+
+</div>
+
+
+<!-- ================= FEATURE CARDS ================= -->
+<div class="container">
+
+  <h2 style="text-align:center;">What Makes It Special</h2>
+
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:40px;
+  ">
+
+    <div style="background:#020617; padding:30px; border-radius:20px;">
+      <h3>📅 Visual Consistency</h3>
+      <p style="color:#9ca3af;">
+        See your creativity grow day by day through a visual calendar.
+      </p>
+    </div>
+
+    <div style="background:#020617; padding:30px; border-radius:20px;">
+      <h3>🔥 Streak Motivation</h3>
+      <p style="color:#9ca3af;">
+        Build habits, not pressure. One upload a day.
+      </p>
+    </div>
+
+    <div style="background:#020617; padding:30px; border-radius:20px;">
+      <h3>🌍 Share Your Story</h3>
+      <p style="color:#9ca3af;">
+        Every artist gets a public gallery to showcase work.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= COMMUNITY GALLERY ================= -->
+<div class="container">
+  <h2>Trending Creations ✨</h2>
+
+  <div class="gallery">
+    {% for img in images %}
+      <div style="position:relative;">
+        <img src="{{ img.image.url }}">
+        <div style="
+          position:absolute;
+          bottom:10px;
+          left:10px;
+          background:rgba(0,0,0,.6);
+          padding:6px 10px;
+          border-radius:8px;
+          font-size:12px;
+        ">
+          @{{ img.user.username }}
+        </div>
+      </div>
+    {% empty %}
+      <p>No uploads yet.</p>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!-- ================= TESTIMONIAL STRIP ================= -->
+<div style="
+  margin-top:60px;
+  padding:60px 30px;
+  background:linear-gradient(135deg,#020617,#1e293b);
+  text-align:center;
+">
+
+  <h2>💬 Artists Say</h2>
+  <p style="
+    max-width:700px;
+    margin:20px auto;
+    font-size:18px;
+    color:#cbd5f5;
+  ">
+    “Digital Memories helped me stay consistent without pressure.
+    One upload a day changed my creative mindset.”
+  </p>
+
+  <p style="color:#38bdf8;">— A Digital Artist</p>
+</div>
+
+
+<script>
+const messages = [
+  "Creating Art. Capturing Emotions. ❤️",
+  "Your Creativity Deserves a Home 🎨",
+  "Preserve Moments. Inspire the World 🌍",
+  "Build Your Creative Streak 🔥",
+  "Every Memory Matters ✨"
+];
+
+document.getElementById("welcomeText").innerText =
+  messages[Math.floor(Math.random() * messages.length)];
+</script>
+
+{% endblock %}
