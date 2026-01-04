@@ -156,4 +156,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://creative-showcase-1-a22i.onrender.com",
+]
 
