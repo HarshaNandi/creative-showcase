@@ -24,10 +24,9 @@ SECRET_KEY =os.environ.get("SECRET_KEY", "unsafe-dev-key")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["creative-showcase-production.up.railway.app",
-    ".up.railway.app",
+ALLOWED_HOSTS = [".onrender.com",
     "localhost",
     "127.0.0.1",]
 
@@ -156,7 +155,4 @@ CSRF_TRUSTED_ORIGINS = [
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = [
-    "https://creative-showcase-1-a22i.onrender.com",
-]
 
