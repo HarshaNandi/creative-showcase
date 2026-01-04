@@ -24,9 +24,10 @@ SECRET_KEY =os.environ.get("SECRET_KEY", "unsafe-dev-key")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True") == "True"
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [".onrender.com",
+ALLOWED_HOSTS = ["creative-showcase-production.up.railway.app",
+    ".up.railway.app",
     "localhost",
     "127.0.0.1",]
 
